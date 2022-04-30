@@ -52,8 +52,10 @@ export default function Home() {
             {page === 0 && <Button cor="green" onClick={onNewClient}>Novo Cliente</Button>}
             {page === 1 && <Button cor="gray" onClick={() => setPage(0)}>Voltar</Button>}
           </div>
-          {page === 0 && <Tabela clients={clients} onClientDeleted={onClientDeleted} onClientSelected={onClientSelected} />}
-          {page === 1 && <Formulario client={client} onClientDeleted={onClientDeleted} onClientUpdated={onClientUpdated} />}
+          <div className="overflow-auto">
+            {page === 0 && <Tabela clients={clients} onClientDeleted={onClientDeleted} onClientSelected={onClientSelected} />}
+            {page === 1 && <Formulario client={client} onClientDeleted={onClientDeleted} onClientUpdated={onClientUpdated} />}
+          </div>
         </Layout>
       </div>
     </>
