@@ -3,7 +3,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 useClients.ts (c) 2022
 Desc: description
 Created:  2022-04-30T16:02:37.615Z
-Modified: 2022-04-30T16:17:17.213Z
+Modified: 2022-04-30T16:55:38.210Z
 */
 
 import { useEffect, useState } from "react";
