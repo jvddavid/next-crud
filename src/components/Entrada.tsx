@@ -4,7 +4,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 Entrada.tsx (c) 2022
 Desc: description
 Created:  2022-04-30T04:26:18.744Z
-Modified: 2022-04-30T04:45:22.858Z
+Modified: 2022-04-30T04:56:03.499Z
 */
 
 interface EntradaProps {
@@ -26,7 +26,7 @@ export default function Entrada(props: EntradaProps) {
       </label>
       <input className={`
         border border-purple-500 rounded-lg px-4 py-2
-        bg-gray-50
+        bg-gray-100
         focus:outline-none
         ${props.readOnly ? '' : 'focus:border-purple-900 focus:bg-white'}	
       
