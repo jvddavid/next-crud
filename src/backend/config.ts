@@ -3,11 +3,11 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 config.ts (c) 2022
 Desc: description
 Created:  2022-04-30T14:22:54.868Z
-Modified: 2022-04-30T14:28:46.351Z
+Modified: 2022-04-30T15:54:03.718Z
 */
 
-import firebase from "firebase";
-import 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
