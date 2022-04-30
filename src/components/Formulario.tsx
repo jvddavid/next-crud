@@ -4,7 +4,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 Formulario.tsx (c) 2022
 Desc: description
 Created:  2022-04-30T05:25:31.525Z
-Modified: 2022-04-30T05:59:44.029Z
+Modified: 2022-04-30T06:03:33.728Z
 */
 
 import { useState } from "react";
@@ -34,7 +34,7 @@ export default function Formulario(props: FormularioProps) {
           {id ? 'Atualizar' : 'Cadastrar'}
         </Button>
         <Button cor="red" onClick={() => {
-          props.onClientUpdated && props.onClientUpdated(new Client(nome, idade, id));
+          props.onClientDeleted && props.onClientDeleted(new Client(nome, idade, id));
         }}>{
             id ? 'Excluir' : 'Cancelar'
           }</Button>
