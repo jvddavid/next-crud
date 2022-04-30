@@ -3,13 +3,14 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 Button.tsx (c) 2022
 Desc: description
 Created:  2022-04-30T03:29:05.258Z
-Modified: 2022-04-30T04:23:06.144Z
+Modified: 2022-04-30T04:58:32.350Z
 */
 
 interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
   cor?: 'green' | 'blue' | 'red' | 'yellow' | 'purple' | 'gray';
+  onClick?: () => void;
 }
 
 export default function Button(props: ButtonProps) {
@@ -34,7 +35,9 @@ export default function Button(props: ButtonProps) {
       ${cor === 'purple' ? 'bg-purple-500 from-purple-400 to-purple-800 border-purple-300' : ''}
       ${cor === 'gray' ? 'bg-gray-500 from-gray-400 to-gray-800 border-gray-300' : ''}
       ${props.className}
-    `}>
+    `}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );
