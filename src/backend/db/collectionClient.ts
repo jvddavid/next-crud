@@ -3,7 +3,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 collectionClient.ts (c) 2022
 Desc: description
 Created:  2022-04-30T14:47:12.671Z
-Modified: 2022-04-30T15:08:05.533Z
+Modified: 2022-04-30T16:53:44.840Z
 */
 
 import ClientRepo from "../../core/ClientRepo";
