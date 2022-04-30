@@ -3,7 +3,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 config.ts (c) 2022
 Desc: description
 Created:  2022-04-30T14:22:54.868Z
-Modified: 2022-04-30T16:52:58.494Z
+Modified: 2022-04-30T16:54:09.508Z
 */
 
 import firebase from 'firebase/app';
