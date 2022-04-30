@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import Button from "../components/Button";
 import Formulario from "../components/Formulario";
@@ -36,15 +37,20 @@ export default function Home() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-      <Layout titulo="Cadastro Simples">
-        <div className="flex justify-end">
-          {page === 0 && <Button cor="green" onClick={() => { setClient(Client.vazio()); setPage(1) }}>Novo Cliente</Button>}
-          {page === 1 && <Button cor="gray" onClick={() => setPage(0)}>Voltar</Button>}
-        </div>
-        {page === 0 && <Tabela clients={clients} onClientDeleted={onClientDeleted} onClientSelected={onClientSelected} />}
-        {page === 1 && <Formulario client={client} onClientDeleted={onClientDeleted} onClientUpdated={onClientUpdated} />}
-      </Layout>
-    </div>
+    <>
+      <Head>
+        <title>Next CRUD</title>
+      </Head>
+      <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+        <Layout titulo="Cadastro Simples">
+          <div className="flex justify-end">
+            {page === 0 && <Button cor="green" onClick={() => { setClient(Client.vazio()); setPage(1) }}>Novo Cliente</Button>}
+            {page === 1 && <Button cor="gray" onClick={() => setPage(0)}>Voltar</Button>}
+          </div>
+          {page === 0 && <Tabela clients={clients} onClientDeleted={onClientDeleted} onClientSelected={onClientSelected} />}
+          {page === 1 && <Formulario client={client} onClientDeleted={onClientDeleted} onClientUpdated={onClientUpdated} />}
+        </Layout>
+      </div>
+    </>
   )
 }
