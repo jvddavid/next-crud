@@ -3,7 +3,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 collectionClient.ts (c) 2022
 Desc: description
 Created:  2022-04-30T14:47:12.671Z
-Modified: 2022-04-30T15:00:47.454Z
+Modified: 2022-04-30T15:08:05.533Z
 */
 
 import ClientRepo from "../../core/ClientRepo";
@@ -23,9 +23,9 @@ export default class CollectionClient implements ClientRepo {
     fromFirestore: (snapshot: firebase.firestore.QueryDocumentSnapshot, options: firebase.firestore.SnapshotOptions) => {
       const dados = snapshot.data(options);
       return new Client(
-        snapshot.id,
         dados.nome,
-        dados.idade
+        dados.idade,
+        snapshot.id
       )
     }
   }
