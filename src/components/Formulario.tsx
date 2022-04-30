@@ -4,7 +4,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 Formulario.tsx (c) 2022
 Desc: description
 Created:  2022-04-30T05:25:31.525Z
-Modified: 2022-04-30T05:56:55.648Z
+Modified: 2022-04-30T05:59:44.029Z
 */
 
 import { useState } from "react";
@@ -26,7 +26,7 @@ export default function Formulario(props: FormularioProps) {
     <div className="flex flex-col rounded-lg bg-purple-100 p-4">
       {id && <Entrada text="Código" value={id} readOnly />}
       <Entrada text="Nome" value={nome} onChange={setNome} />
-      <Entrada text="Idade" value={idade} onChange={(n) => setIdade(Number(n))} min={0} />
+      <Entrada text="Idade" type="number" value={idade} onChange={(n) => setIdade(Number(n))} min={0} />
       <div className="flex justify-end mt-3">
         <Button className="mx-2" cor="green" onClick={() => {
           props.onClientUpdated && props.onClientUpdated(new Client(nome, idade, id));
