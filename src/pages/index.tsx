@@ -43,7 +43,7 @@ export default function Home() {
       </Head>
       <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white">
         <Layout titulo="Cadastro Simples">
-          <div className="flex justify-end">
+          <div className="flex justify-end mb-3">
             {page === 0 && <Button cor="green" onClick={() => { setClient(Client.vazio()); setPage(1) }}>Novo Cliente</Button>}
             {page === 1 && <Button cor="gray" onClick={() => setPage(0)}>Voltar</Button>}
           </div>

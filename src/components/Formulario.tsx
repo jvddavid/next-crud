@@ -4,7 +4,7 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 Formulario.tsx (c) 2022
 Desc: description
 Created:  2022-04-30T05:25:31.525Z
-Modified: 2022-04-30T05:46:00.246Z
+Modified: 2022-04-30T05:56:55.648Z
 */
 
 import { useState } from "react";
@@ -23,7 +23,7 @@ export default function Formulario(props: FormularioProps) {
   const [nome, setNome] = useState(props.client?.nome || '');
   const [idade, setIdade] = useState(props.client?.idade || 0);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col rounded-lg bg-purple-100 p-4">
       {id && <Entrada text="Código" value={id} readOnly />}
       <Entrada text="Nome" value={nome} onChange={setNome} />
       <Entrada text="Idade" value={idade} onChange={(n) => setIdade(Number(n))} min={0} />
