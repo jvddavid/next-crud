@@ -3,14 +3,13 @@ Author: João Victor David de Oliveira (j.victordavid2@gmail.com)
 Tabela.tsx (c) 2022
 Desc: description
 Created:  2022-04-30T01:48:20.111Z
-Modified: 2022-04-30T03:22:03.594Z
+Modified: 2022-04-30T05:06:14.931Z
 */
 
 import Client from "../core/Client";
 import { IconeEdicao, IconeExcluir } from "./Icones";
 
 interface TabelaProps {
-  children?: React.ReactNode;
   clients: Client[];
   onClientSelected?: (client: Client) => void;
   onClientDeleted?: (client: Client) => void;
