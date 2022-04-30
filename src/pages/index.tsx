@@ -1,52 +1,12 @@
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
-import CollectionClient from "../backend/db/collectionClient";
 import Button from "../components/Button";
 import Formulario from "../components/Formulario";
 import Layout from "../components/Layout";
-import Client from "../core/Client";
+import useClients from "../hooks/useClients";
 import Tabela from './../components/Tabela';
-import ClientRepo from './../core/ClientRepo';
 
 export default function Home() {
-  const repo = useRef<ClientRepo>(new CollectionClient())
-
-  const [client, setClient] = useState(Client.vazio());
-  const [page, setPage] = useState(0);
-  const [clients, setClients] = useState([]);
-
-  useEffect(() => {
-    repo.current.getAll().then(setClients);
-  }, [repo])
-
-  async function onClientDeleted(client: Client) {
-    if (client.id) {
-      await repo.current.delete(client);
-    }
-    setClients(clients.filter(c => c.id !== client.id));
-    setPage(0)
-  }
-
-  async function onClientUpdated(client: Client) {
-    if (client.id) {
-      await repo.current.save(client);
-      setClients(clients.map(c => c.id === client.id ? client : c))
-    } else {
-      const newClient = await repo.current.save(client);
-      setClients([...clients, newClient])
-    }
-    setPage(0)
-  }
-
-  function onNewClient() {
-    setClient(Client.vazio())
-    setPage(1)
-  }
-
-  function onClientSelected(client: Client) {
-    setClient(client)
-    setPage(1)
-  }
+  const { page, setPage, client, clients, onClientDeleted, onClientSelected, onClientUpdated, onNewClient } = useClients()
 
   return (
     <>
