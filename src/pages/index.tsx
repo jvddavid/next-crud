@@ -1,43 +1,50 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import CollectionClient from "../backend/db/collectionClient";
 import Button from "../components/Button";
 import Formulario from "../components/Formulario";
 import Layout from "../components/Layout";
 import Client from "../core/Client";
 import Tabela from './../components/Tabela';
+import ClientRepo from './../core/ClientRepo';
 
 export default function Home() {
+  const repo = useRef<ClientRepo>(new CollectionClient())
+
   const [client, setClient] = useState(Client.vazio());
   const [page, setPage] = useState(0);
-  const [clients, setClients] = useState([
-    new Client('João', 10, '1'),
-    new Client('Maria', 20, '2'),
-    new Client('Pedro', 30, '3'),
-    new Client('José', 40, '4'),
-    new Client('Paulo', 50, '5'),
-  ]);
+  const [clients, setClients] = useState([]);
 
-  function onClientDeleted(client: Client) {
-    setClients(clients.filter(c => c.id !== client.id))
+  useEffect(() => {
+    repo.current.getAll().then(setClients);
+  }, [repo])
+
+  async function onClientDeleted(client: Client) {
+    if (client.id) {
+      await repo.current.delete(client);
+    }
+    setClients(clients.filter(c => c.id !== client.id));
     setPage(0)
   }
 
-  function onClientSelected(client: Client) {
-    setClient(client)
-    setPage(1)
-  }
-
-  function onClientUpdated(client: Client) {
+  async function onClientUpdated(client: Client) {
     if (client.id) {
+      await repo.current.save(client);
       setClients(clients.map(c => c.id === client.id ? client : c))
     } else {
-      setClients([...clients, new Client(client.nome, client.idade, (Math.random() * 1000).toFixed(0))])
+      const newClient = await repo.current.save(client);
+      setClients([...clients, newClient])
     }
     setPage(0)
   }
 
   function onNewClient() {
     setClient(Client.vazio())
+    setPage(1)
+  }
+
+  function onClientSelected(client: Client) {
+    setClient(client)
     setPage(1)
   }
 
